@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 // import AllPizza from "../pizza-data";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllPizzas } from "../actions/pizzaActions";
+import { getAllPizzas } from "../actions/pizzaAction";
 import Pizza from "../components/Pizza";
 
 const Homescreen = () => {
