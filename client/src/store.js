@@ -2,8 +2,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from '@redux-devtools/extension';
 import { getAllPizzaReducer } from './reducers/pizzaReducer'
-
-import { registerUserReducer, loginUserReducer, cartReducer } from './reducers/userReducer';
+import { cartReducer } from "./reducers/cartReducer";
+import { registerUserReducer, loginUserReducer } from './reducers/userReducer';
 
 
 const currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : null
@@ -20,7 +20,7 @@ const initialState = {
     },
     cartReducer: {
         cartItems: cartItems
-        
+
     }
 }
 

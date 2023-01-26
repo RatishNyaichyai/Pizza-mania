@@ -33,17 +33,18 @@ router.post('/login', async (req, res) => {
     console.log('i am apiii', req.body)
     const { email, password } = req.body;
     try {
-        console.log('i am apiii', req.body)
+        console.log('i am in apiii', req.body)
         const user = await User.find({ email, password });
-        console.log(user)
-        const token = jwt.sign({ email: user.email, id: user._id }, secret
-            , { expiredIn: "1h" });
-        if (user) {
+        console.log('result', user)
+
+        if (password === user[0].password) {
+            const token = jwt.sign({ username: user[0].email }, secret);
             const currentUser = {
                 success: true,
                 token: token,
                 user,
             }
+            console.log('token', currentUser)
             res.status(200).send(currentUser);
         } else {
             res.status(400).json({

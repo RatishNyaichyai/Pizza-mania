@@ -10,14 +10,6 @@ const Login = () => {
     const dispatch = useDispatch();
 
 
-    useEffect(() => {
-        if (localStorage.getItem('currentUser')) {
-            alert('Login Success')
-            window.location.href = "/"
-
-        }
-    }, [])
-
     const loginHandler = (e) => {
         e.preventDefault();
         const user = { email, password };
