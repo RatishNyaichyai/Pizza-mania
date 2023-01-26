@@ -7,7 +7,9 @@ const CartScreen = () => {
   const cartState = useSelector((state) => state.cartReducer);
   const cartItems = cartState.cartItems;
   const dispatch = useDispatch();
-  const subTotal = cartItems.reduce((x, item) => x + item.price, 0);
+  const subTotal = cartItems.reduce((prevValue, currentVal) => {
+    return prevValue + currentVal.prices;
+  }, 0);
 
   return (
     <>
