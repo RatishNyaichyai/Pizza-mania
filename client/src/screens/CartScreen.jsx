@@ -10,7 +10,7 @@ const CartScreen = () => {
             <div class="container mt-2 pt-5">
                 <div class="row">
                     <div class="col-12 col-lg-8 col-md-8 col-sm-12" style={{ backgroundColor: "#d3dd9deb" }}>
-                        <h2 style={{ color: "#937403e8" }}>Cart Items</h2>
+                        <h2 style={{ color: "rgb(66 60 39 / 91%)" }}>Cart Items</h2>
                         <div class="row  mt-3">
                             {
                                 cartItems.map((item, index) => (
@@ -32,7 +32,7 @@ const CartScreen = () => {
 
                     </div>
                     <div class="col-12 col-lg-4 col-md-4 col-sm-12 " style={{ backgroundColor: "#d3dd9deb" }}>
-                        <h2 style={{ color: "#937403e8" }}>Payment Info</h2>
+                        <h2 style={{ color: "rgb(66 60 39 / 91%)" }}>Payment Info</h2>
                         <div></div>
                     </div>
                 </div>
