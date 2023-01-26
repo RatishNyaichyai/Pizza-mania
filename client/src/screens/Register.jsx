@@ -30,17 +30,18 @@ const Register = () => {
                     <div className="LoginSignUpBox">
 
                         <form className="loginForm" >
-                            <div className="loginEmail">
 
-                                <input
+                            <div className="logininput">
+
+                                <i class="bi bi-person-fill"></i> &nbsp;<input
                                     type="text"
                                     placeholder="Name"
                                     required
                                     onChange={e => setName(e.target.value)}
                                 />
                             </div>
-                            <div className="loginEmail">
-
+                            <div className="logininput">
+                                <i class="bi bi-envelope-open-fill"></i>&nbsp;
                                 <input
                                     type="email"
                                     placeholder="Email"
@@ -50,8 +51,8 @@ const Register = () => {
                                 />
                             </div>
 
-                            <div className="loginPassword">
-
+                            <div className="logininput">
+                                <i class="bi bi-file-earmark-lock2-fill"></i>
                                 <input
                                     type="password"
                                     placeholder="Password"
@@ -59,18 +60,21 @@ const Register = () => {
                                     onChange={e => setPassword(e.target.value)}
                                 />
                             </div>
-                            <div className="loginPassword">
-
+                            <div className="logininput">
+                                <i class="bi bi-file-earmark-lock2-fill"></i>
                                 <input
                                     type="password"
                                     placeholder=" Confirm Password"
                                     required
                                     onChange={e => setConfirmPassword(e.target.value)}
                                 />
+
                             </div>
 
-                            <input type="submit" value="Login" className="loginBtn" onClick={registerHandler} />
-
+                            <input type="submit" value="Register" className="loginBtn" onClick={registerHandler} />
+                            <div class="mt-4" style={{ justifyContent: "center" }}>
+                                <Link to="/"> <button className="loginBtn" style={{ backgroundColor: "#5e5a5a", }} > Go To Home</button></Link>
+                            </div>
 
                         </form>
                     </div>

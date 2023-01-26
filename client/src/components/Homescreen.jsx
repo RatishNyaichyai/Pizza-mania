@@ -22,7 +22,7 @@ const Homescreen = () => {
         ) : (
           <div class="row mt-5" style={{ padding: "5px", margin: "auto" }}>
             {pizzas.map((pizza) => (
-              <div class="col-3">
+              <div class="col-12 col-md-6 col-lg-3 col-sm-6">
                 <Pizza pizza={pizza} />
               </div>
             ))}

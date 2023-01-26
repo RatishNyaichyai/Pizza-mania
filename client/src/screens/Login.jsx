@@ -24,7 +24,7 @@ const Login = () => {
 
                         <form className="loginForm" >
                             <div className="logininput">
-
+                                <i class="bi bi-envelope-open-fill"></i>&nbsp;
                                 <input
                                     type="email"
                                     placeholder="Email"
@@ -33,7 +33,7 @@ const Login = () => {
                                 />
                             </div>
                             <div className="logininput">
-
+                                <i class="bi bi-file-earmark-lock2-fill"></i>&nbsp;
                                 <input
                                     type="password"
                                     placeholder="Password"
