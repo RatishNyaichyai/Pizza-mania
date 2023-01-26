@@ -1,28 +1,36 @@
-import React from 'react';
-import AllPizza from "../pizza-data";
-import Pizza from '../components/Pizza';
-
-
+import React, { useEffect } from "react";
+// import AllPizza from "../pizza-data";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllPizzas } from "../actions/pizzaAction";
+import Pizza from "../components/Pizza";
 
 const Homescreen = () => {
-    return (
-        <>
-            <div class="container">
-                <div class='row mt-5' style={{ padding: "5px", margin: "auto" }}>
-                    {AllPizza.map((pizza) => (
-                        <div class="col-3" >
-                            <Pizza pizza={pizza} />
-                        </div>
-                    )
+  const dispatch = useDispatch();
+  const pizzaState = useSelector((state) => state.getAllPizzaReducer);
+  const { loading, pizzas, error } = pizzaState;
 
-                    )}
-
-
-                </div>
-            </div>
-
-        </>
-    )
-}
+  useEffect(() => {
+    dispatch(getAllPizzas());
+  }, [dispatch]);
+  return (
+    <>
+      <div class="container">
+        {loading ? (
+          <h1>Loading....</h1>
+        ) : error ? (
+          <h1>Error while fetching pizzas</h1>
+        ) : (
+          <div class="row mt-5" style={{ padding: "5px", margin: "auto" }}>
+            {pizzas.map((pizza) => (
+              <div class="col-3">
+                <Pizza pizza={pizza} />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
+  );
+};
 
 export default Homescreen;

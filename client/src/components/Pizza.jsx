@@ -1,8 +1,20 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../actions/cartAction";
 
 const Pizza = ({ pizza }) => {
   const [varient, setVarient] = useState("small");
   const [quantity, setQuantity] = useState(1);
+  const [show, setshow] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(pizza, quantity, varient));
+  };
+
+  const handleClose = () => setshow(false);
+  const handleShow = () => setshow(true);
   return (
     <>
       <div class="card" style={{ width: "15.5rem", marginTop: "30px" }}>
@@ -46,6 +58,7 @@ const Pizza = ({ pizza }) => {
                 type="button"
                 style={{ width: "100px", fontSize: "13px", fontWeight: "500" }}
                 class="btn btn-warning"
+                onClick={addToCartHandler}
               >
                 Add to cart
               </button>

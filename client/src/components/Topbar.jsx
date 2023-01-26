@@ -1,8 +1,11 @@
 import React from "react";
 // eslint-disable-next-line
 import { Link, useParams, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 const Topbar = () => {
+  const dispatch = useDispatch();
+  const cartState = useSelector((state) => state.cartReducer);
   return (
     <>
       <nav class="navbar navbar-expand-lg ">
@@ -53,6 +56,7 @@ const Topbar = () => {
                   <span>
                     <i style={{ color: "#ffbc00" }} class="bi bi-cart-fill"></i>
                   </span>
+                  {cartState.cartItems.length}
                 </Link>
               </li>
             </ul>
