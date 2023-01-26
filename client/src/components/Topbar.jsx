@@ -3,6 +3,8 @@ import React from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+// const pizzaLogo = require("../images/pizzaLogo");
+
 const Topbar = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cartReducer);
