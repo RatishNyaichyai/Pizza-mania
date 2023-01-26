@@ -27,7 +27,7 @@ app.use("/api/users", require('./routes/userRoute'))
 // })
 
 
-const server = app.listen(process.env.PORT || 4000, () => {
+const server = app.listen(process.env.PORT || 5000, () => {
     console.log(`Listening to port: ${process.env.PORT}`);
 })
 
