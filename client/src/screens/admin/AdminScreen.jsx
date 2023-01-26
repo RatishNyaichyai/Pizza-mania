@@ -1,13 +1,15 @@
-import React from 'react';
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
-import AddPizza from '../../components/Admin/AddPizza';
-import AllOrder from '../../components/Admin/AllOrder';
-import AllPizzas from '../../components/Admin/AllPizzas';
-import AllUsers from '../../components/Admin/AllUsers';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import SideBar from './SideBar';
 
 const AdminScreen = () => {
-
+    const userState = useSelector(state => state.loginUserReducer);
+    const { currentUser } = userState;
+    useEffect(() => {
+        if (localStorage.getItem('currentUser') === null || !currentUser.user[0].isAdmin) {
+            window.location.href = "/";
+        }
+    }, [])
     return (
 
         <>

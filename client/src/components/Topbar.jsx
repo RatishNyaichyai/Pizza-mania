@@ -11,6 +11,8 @@ const Topbar = () => {
   const cartState = useSelector((state) => state.cartReducer);
   const userState = useSelector((state) => state.loginUserReducer);
   const { currentUser } = userState;
+
+
   return (
     <>
       <nav class="navbar navbar-expand-lg ">
@@ -47,23 +49,43 @@ const Topbar = () => {
                 </Link>
               </li>
               {currentUser ? (<>
-                <li class="nav-item">
-                  <Link class="nav-link">
-                    {currentUser.user[0].name}
-                  </Link>
-                </li>
-                <li class="nav-item">
-                  <Link to="" class="nav-link">
-                    My order
-                  </Link>
-                </li>
-                <li class="nav-item">
-                  <Link onClick={() => {
-                    dispatch(logoutUser())
-                  }} class="nav-link">
-                    Logout
-                  </Link>
-                </li>
+                {!currentUser.user[0].isAdmin ?
+                  (<>
+                    <li class="nav-item">
+                      <Link class="nav-link">
+                        {currentUser.user[0].name}
+                      </Link>
+                    </li>
+                    <li class="nav-item">
+                      <Link to="" class="nav-link">
+                        My order
+                      </Link>
+                    </li>
+                    <li class="nav-item">
+                      <Link onClick={() => {
+                        dispatch(logoutUser())
+                      }} class="nav-link">
+                        Logout
+                      </Link>
+                    </li>
+                  </>)
+                  : (
+                    <>
+
+                      <li class="nav-item">
+                        <Link to="/admin" class="nav-link">
+                          Admin Dashboard
+                        </Link>
+                      </li>
+                      <li class="nav-item">
+                        <Link onClick={() => {
+                          dispatch(logoutUser())
+                        }} class="nav-link">
+                          Logout
+                        </Link>
+                      </li>
+                    </>
+                  )}
 
               </>
 

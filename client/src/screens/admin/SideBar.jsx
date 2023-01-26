@@ -7,7 +7,7 @@ const SideBar = () => {
     return (
 
         <>
-            <div class="col-4 col-lg-4 col-md-4 col-sm-4" id="adminPanel">
+            <div class="col-3 col-lg-3 col-md-3 col-sm-3" id="adminPanel">
                 <div class="btn-group-vertical" role="group" style={{ height: "75vh", width: "90%" }} aria-label="Vertical button group">
 
                     <button type="button" onClick={() => { navigate("/admin/userlist") }} class="btn btn-dark" style={{ borderRadius: "0px" }} >View Users</button>
