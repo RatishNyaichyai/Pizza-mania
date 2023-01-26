@@ -7,8 +7,8 @@ const CartScreen = () => {
   const cartState = useSelector((state) => state.cartReducer);
   const cartItems = cartState.cartItems;
   const dispatch = useDispatch();
-  const subTotal = cartItems.reduce((prevValue, currentVal) => {
-    return prevValue + currentVal.prices;
+  const subTotal = cartItems.reduce((x, item) => {
+    return x + item.quantity * item.prices[0][item.varient];
   }, 0);
 
   return (
@@ -85,7 +85,7 @@ const CartScreen = () => {
           >
             <h2 style={{ color: "rgb(66 60 39 / 91%)" }}>Payment Info</h2>
             <h4>Sub Total</h4>
-            <h4>{subTotal}</h4>
+            <h4>RS: {subTotal}/-</h4>
             <button
               type="button"
               style={{ width: "100px", fontSize: "13px", fontWeight: "500" }}
