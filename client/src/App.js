@@ -9,6 +9,7 @@ import Topbar from './components/Topbar';
 import Contactus from './components/Contactus';
 import Register from './screens/Register';
 import Login from './screens/Login';
+import CartScreen from './screens/CartScreen';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/contactus" element={< Contactus />} />
             <Route path="/register" element={< Register />} />
             <Route path="/login" element={< Login />} />
+            <Route path="/cart" element={< CartScreen />} />
           </Routes>
         </BrowserRouter>
       </div>
