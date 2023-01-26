@@ -32,9 +32,9 @@ export const loginUser = (user) => async (dispatch) => {
         dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data });
         localStorage.setItem('currentUser', JSON.stringify(response.data))
         console.log('from actiom', response.data);
-        console.log("i am succesful")
-        alert('Login Success');
+        alert('Login Sucess');
         window.location.href = "/"
+
 
     } catch (error) {
         dispatch({ type: USER_LOGIN_FAIL, payload: error });

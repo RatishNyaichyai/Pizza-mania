@@ -4,6 +4,8 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from '../actions/userAction';
 
+// const pizzaLogo = require("../images/pizzaLogo");
+
 const Topbar = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cartReducer);
