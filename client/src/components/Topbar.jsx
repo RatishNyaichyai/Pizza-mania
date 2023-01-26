@@ -47,6 +47,11 @@ const Topbar = () => {
                 </Link>
               </li>
               <li class="nav-item">
+                <Link to="/register" class="nav-link">
+                  Register
+                </Link>
+              </li>
+              <li class="nav-item">
                 <Link to="/cart" class="nav-link">
                   <span>
                     <i style={{ color: "#ffbc00" }} class="bi bi-cart-fill"></i>

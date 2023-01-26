@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homescreen from './components/Homescreen';
 import Topbar from './components/Topbar';
 import Contactus from './components/Contactus';
+import Register from './screens/Register';
+import Login from './screens/Login';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Routes>
             <Route path="/" element={< Homescreen />} />
             <Route path="/contactus" element={< Contactus />} />
+            <Route path="/register" element={< Register />} />
+            <Route path="/login" element={< Login />} />
           </Routes>
         </BrowserRouter>
       </div>
