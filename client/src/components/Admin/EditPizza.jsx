@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../../screens/admin/SideBar";
-import { addPizza } from "../../actions/pizzaAction";
+import "../../screens/admin/adminScreen.css";
 import { useDispatch, useSelector } from "react-redux";
+import { getPizzaById, updatePizza } from "../../actions/pizzaAction";
+import { useParams } from "react-router-dom";
 import Loader from "../Loader";
 import Error from "../Error";
 import Success from "../Success";
 
-const AddPizza = () => {
+const EditPizza = () => {
   const [name, setName] = useState("");
   const [smallPrice, setSmallPrice] = useState();
   const [largePrice, setLargePrice] = useState();
@@ -15,14 +17,34 @@ const AddPizza = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
 
-  const addPizzaState = useSelector((state) => state.addPizzaReducer);
-  const { loading, error, success } = addPizzaState;
-
   const dispatch = useDispatch();
+  const { pizzaId } = useParams();
+  const getPizzaByState = useSelector((state) => state.getPizzaByIDReducer);
+  const { loading, error, pizza } = getPizzaByState;
+  const updatePizzaState = useSelector((state) => state.updatePizzaByIDReducer);
+  const { updateloading, updatesuccess, updateerror } = updatePizzaState;
+  useEffect(() => {
+    if (pizza) {
+      if (pizza._id === pizzaId) {
+        setName(pizza.name);
+        setDescription(pizza.description);
+        setCategory(pizza.category);
+        setImage(pizza.image);
+        setSmallPrice(pizza.prices[0]["small"]);
+        setMediumPrice(pizza.prices[0]["medium"]);
+        setLargePrice(pizza.prices[0]["large"]);
+      } else {
+        dispatch(getPizzaById(pizzaId));
+      }
+    } else {
+      dispatch(getPizzaById(pizzaId));
+    }
+  }, [pizza, dispatch]);
 
   const submitForm = (e) => {
     e.preventDefault();
-    const pizza = {
+    const updatedPizza = {
+      _id: pizzaId,
       name,
       image,
       description,
@@ -33,25 +55,20 @@ const AddPizza = () => {
         large: largePrice,
       },
     };
-    dispatch(addPizza(pizza));
+    dispatch(updatePizza(updatedPizza));
   };
-
   return (
-    <div>
-      {loading && <Loader />}
-      {error && <Error error="add new pizza error" />}
-      {success && <Success success="pizza added successfully" />}
-      <div
-        class="container mt-3 p-0"
-        id="admin-container"
-        style={{ backgroundColor: "#8bc34a1c" }}
-      >
+    <>
+      {updateloading && <Loader />}
+      {error && <Error error="updating pizza fail" />}
+      <div class="container mt-3 p-0" style={{ backgroundColor: "#8bc34a1c" }}>
         <h3
           className="text-center bg-dark text-light   p-2 "
           style={{ width: "100%", margin: "auto" }}
         >
           Admin Panel
         </h3>
+
         <div class="row mt-1">
           <SideBar />
           <div class="col-8 col-lg-8 col-md-8 col-sm-12">
@@ -138,15 +155,15 @@ const AddPizza = () => {
 
               <div class="col-12">
                 <button class="btn btn-primary" type="submit">
-                  Add new
+                  Update Pizza
                 </button>
               </div>
             </form>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default AddPizza;
+export default EditPizza;

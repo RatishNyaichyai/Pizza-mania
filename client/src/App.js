@@ -15,6 +15,7 @@ import AllPizzas from './components/Admin/AllPizzas';
 import AllUsers from './components/Admin/AllUsers';
 import AddPizza from './components/Admin/AddPizza';
 import AllOrder from './components/Admin/AllOrder';
+import EditPizza from './components/Admin/EditPizza';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/admin/pizzalist" element={< AllPizzas />} />
             <Route path="/admin/addnewpizza" element={< AddPizza />} />
             <Route path="/admin/orderlist" element={< AllOrder />} />
+            <Route path="/admin/editpizza/:pizzaId" element={< EditPizza />} />
           </Routes>
         </BrowserRouter>
       </div>
