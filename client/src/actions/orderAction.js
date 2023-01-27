@@ -36,5 +36,18 @@ export const getUserOrders = () => async (dispatch, getState) => {
     } catch (error) {
         dispatch({ type: 'USER_ORDER_FAIL', payload: error });
     }
+}
+export const getAllOrders = () => async (dispatch, getState) => {
+    // const currentUser = getState().loginUserReducer.currentUser;
+    // const userid = currentUser.user[0]._id;
+    dispatch({
+        type: 'ALL_ORDER_REQUEST'
+    })
+    try {
+        const response = await axios.get('http://localhost:4000/api/orders/alluserorder');
+        dispatch({ type: 'ALL_ORDER_SUCCESS', payload: response.data })
 
+    } catch (error) {
+        dispatch({ type: 'ALL_ORDER_FAIL', payload: error });
+    }
 }
