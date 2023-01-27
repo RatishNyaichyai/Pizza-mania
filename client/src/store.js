@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from '@redux-devtools/extension';
 import { getAllPizzaReducer } from './reducers/pizzaReducer'
 import { cartReducer } from "./reducers/cartReducer";
-import { registerUserReducer, loginUserReducer } from './reducers/userReducer';
+import { registerUserReducer, loginUserReducer, getAllUsersReducer } from './reducers/userReducer';
 import { placeOrderReducer, getUserOrdersReducer } from './reducers/orderReducer';
 
 
@@ -15,7 +15,8 @@ const rootReducer = combineReducers({
     loginUserReducer: loginUserReducer,
     cartReducer: cartReducer,
     placeOrderReducer: placeOrderReducer,
-    getUserOrdersReducer: getUserOrdersReducer
+    getUserOrdersReducer: getUserOrdersReducer,
+    getAllUsersReducer: getAllUsersReducer
 })
 const initialState = {
     loginUserReducer: {

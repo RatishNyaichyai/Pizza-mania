@@ -47,10 +47,10 @@ const AllPizzas = () => {
                                                 <tr>
                                                     <td>{index + 1}</td>
                                                     <td>{pizza.name}</td>
-                                                    <td>Small:{pizza.prices[0]["small"]}<br>
-                                                    </br>Medium:{pizza.prices[0]["medium"]}<br />
-                                                        Large:{pizza.prices[0]["large"]}</td>
-                                                    <td>{pizza.name}</td>
+                                                    <td>Small:<br>
+                                                    </br>Medium:<br />
+                                                        Large:</td>
+                                                    <td></td>
                                                     <td><i class="bi bi-pen-fill"></i>&nbsp; &nbsp;<i class="bi bi-trash-fill"></i></td>
                                                 </tr>
                                             ))
