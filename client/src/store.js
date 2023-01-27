@@ -4,6 +4,7 @@ import { composeWithDevTools } from '@redux-devtools/extension';
 import { getAllPizzaReducer, addPizzaReducer, getPizzaByIDReducer, updatePizzaByIDReducer } from './reducers/pizzaReducer'
 import { cartReducer } from "./reducers/cartReducer";
 import { registerUserReducer, loginUserReducer } from './reducers/userReducer';
+import { placeOrderReducer, getUserOrdersReducer } from './reducers/orderReducer';
 
 
 const currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : null
@@ -15,7 +16,9 @@ const rootReducer = combineReducers({
     cartReducer: cartReducer,
     addPizzaReducer: addPizzaReducer,
     getPizzaByIDReducer: getPizzaByIDReducer,
-    updatePizzaByIDReducer: updatePizzaByIDReducer
+    updatePizzaByIDReducer: updatePizzaByIDReducer,
+    placeOrderReducer: placeOrderReducer,
+    getUserOrdersReducer: getUserOrdersReducer
 })
 const initialState = {
     loginUserReducer: {

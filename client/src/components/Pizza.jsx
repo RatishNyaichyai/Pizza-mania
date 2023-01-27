@@ -31,7 +31,7 @@ const Pizza = ({ pizza }) => {
           <hr></hr>
           <p class="card-text">
             <div class="row">
-              <div class="col-6">
+              <div class="col-6 ">
                 <h6>Varient</h6>
                 <select onChange={(e) => setVarient(e.target.value)}>
                   {pizza.varients.map((varient) => (

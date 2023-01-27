@@ -3,6 +3,7 @@ import SideBar from '../../screens/admin/SideBar'
 import "../../screens/admin/adminScreen.css";
 
 const AllUsers = () => {
+    
     return (
         <>
             <div class="container mt-3 p-0" style={{ backgroundColor: "#8bc34a1c" }} >
@@ -12,7 +13,7 @@ const AllUsers = () => {
                 <div class="row mt-1">
                     <SideBar />
                     <div class="col-8 col-lg-8 col-md-8 col-sm-12">
-                        <hi1>Alluser</hi1>
+                        
                     </div>
                 </div>
             </div>
