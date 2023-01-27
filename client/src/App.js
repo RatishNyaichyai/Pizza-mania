@@ -15,6 +15,8 @@ import AllPizzas from './components/Admin/AllPizzas';
 import AllUsers from './components/Admin/AllUsers';
 import AddPizza from './components/Admin/AddPizza';
 import AllOrder from './components/Admin/AllOrder';
+import CheckoutScreen from './screens/CheckoutScreen';
+import OrderScreen from './screens/OrderScreen';
 
 function App() {
   return (
@@ -29,10 +31,13 @@ function App() {
             <Route path="/register" element={< Register />} />
             <Route path="/login" element={< Login />} />
             <Route path="/cart" element={< CartScreen />} />
+            <Route path="/checkout" element={< CheckoutScreen />} />
             <Route path="/admin/userlist" element={< AllUsers />} />
             <Route path="/admin/pizzalist" element={< AllPizzas />} />
             <Route path="/admin/addnewpizza" element={< AddPizza />} />
             <Route path="/admin/orderlist" element={< AllOrder />} />
+            <Route path="/orders" element={< OrderScreen />} />
+
           </Routes>
         </BrowserRouter>
       </div>

@@ -18,6 +18,14 @@ const orderSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    phoneNumber: {
+        type: String,
+        required: true
+    },
+    message: {
+        type: String,
+
+    },
     orderAmount: {
         type: String,
         required: true
@@ -26,10 +34,7 @@ const orderSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    transactionId: {
-        type: String,
-        required: true
-    },
+
 }, { timestamps: true })
 
 module.exports = mongoose.model('Order', orderSchema);
