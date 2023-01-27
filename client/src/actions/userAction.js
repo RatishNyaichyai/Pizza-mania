@@ -49,3 +49,14 @@ export const logoutUser = () => dispatch => {
     alert('Logged out successfully.');
     window.location.href = "/"
 }
+
+export const getAllUsers = () => async (dispatch) => {
+    dispatch({ type: 'GET_USERS_REQUEST' })
+    try {
+        const res = await axios.get('http://localhost:4000/api/users/getallusers')
+        console.log(res)
+        dispatch({ type: 'GET_USERS_SUCCESS', payload: res.data })
+    } catch (err) {
+        dispatch({ type: 'GET_USERS_FAIL', payload: err })
+    }
+};

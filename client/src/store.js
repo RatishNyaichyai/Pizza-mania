@@ -3,8 +3,8 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from '@redux-devtools/extension';
 import { getAllPizzaReducer, addPizzaReducer, getPizzaByIDReducer, updatePizzaByIDReducer } from './reducers/pizzaReducer'
 import { cartReducer } from "./reducers/cartReducer";
-import { registerUserReducer, loginUserReducer } from './reducers/userReducer';
-import { placeOrderReducer, getUserOrdersReducer, allUserOrdersReducer } from './reducers/orderReducer';
+import { registerUserReducer, loginUserReducer, getAllUsersReducer } from './reducers/userReducer';
+import { placeOrderReducer, getUserOrdersReducer } from './reducers/orderReducer';
 
 
 const currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : null
@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
     updatePizzaByIDReducer: updatePizzaByIDReducer,
     placeOrderReducer: placeOrderReducer,
     getUserOrdersReducer: getUserOrdersReducer,
-    allUserOrdersReducer: allUserOrdersReducer
+    getAllUsersReducer: getAllUsersReducer
 })
 const initialState = {
     loginUserReducer: {
